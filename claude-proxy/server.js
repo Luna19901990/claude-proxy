@@ -6,10 +6,7 @@ const app = express();
 
 // CORS — allow only Kate's Netlify site
 app.use(cors({
-  origin: [
-    'https://verdant-pudding-f296ae.netlify.app',
-    'http://localhost:3000' // for local testing
-  ]
+  origin: '*'
 }));
 
 app.use(express.json());
