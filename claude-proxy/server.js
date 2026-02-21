@@ -22,7 +22,8 @@ app.get('/', (req, res) => {
 
 // Main endpoint — all games call this
 app.post('/api/chat', async (req, res) => {
-  const { message } = req.body;
+  const { message, prompt } = req.body;
+const text = message || prompt;
 
   if (!message) {
     return res.status(400).json({ error: 'Message is required' });
@@ -32,7 +33,7 @@ app.post('/api/chat', async (req, res) => {
     const response = await client.messages.create({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: 1024,
-      messages: [{ role: 'user', content: message }]
+      messages: [{ role: 'user', content: text }]
     });
 
     res.json({ response: response.content[0].text });
