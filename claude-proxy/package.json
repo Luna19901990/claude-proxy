@@ -1,0 +1,14 @@
+{
+  "name": "claude-proxy",
+  "version": "1.0.0",
+  "description": "Backend proxy for World of Mirrors — keeps Anthropic API key secure",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "@anthropic-ai/sdk": "^0.39.0"
+  }
+}
